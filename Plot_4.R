@@ -2,10 +2,7 @@
 # Exploratory Data Analysis - Project 2
 # May 28th, 2023
 
-# Plot 3
-library("data.table")
-library("ggplot2")
-
+# Plot 4
 library("data.table")
 library("ggplot2")
 
@@ -24,10 +21,10 @@ coalRelated <- grepl("coal", SCC[, SCC.Level.Four], ignore.case=TRUE)
 combustionSCC <- SCC[combustionRelated & coalRelated, SCC]
 combustionNEI <- NEI[NEI[,SCC] %in% combustionSCC]
 
-png("plot4.png")
+png("plot_4.png")
 
 ggplot(combustionNEI,aes(x = factor(year),y = Emissions/10^5)) +
-  geom_bar(stat="identity", fill ="#FF9999", width=0.75) +
+  geom_bar(stat="identity", fill ="Tomato3", width=0.75) +
   labs(x="year", y=expression("Total PM"[2.5]*" Emission (10^5 Tons)")) + 
   labs(title=expression("PM"[2.5]*" Coal Combustion Source Emissions Across US from 1999-2008"))
 
